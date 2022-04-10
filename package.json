@@ -1,21 +1,19 @@
 {
   "name": "unplugin-pomodoro",
-  "version": "0.1.0",
-  "description": "Register global imports on demand for Vite and Webpack",
+  "version": "0.0.1",
+  "description": "A vite plugin, brings pomodoro to your development flow",
   "keywords": [
     "unplugin",
-    "vite",
-    "webpack",
-    "rollup",
-    "transform"
+    "pomodoro",
+    "vite"
   ],
-  "homepage": "https://github.com/antfu/unplugin-starter#readme",
+  "homepage": "https://github.com/InfiniteXyy/unplugin-pomodoro#readme",
   "bugs": {
-    "url": "https://github.com/antfu/unplugin-starter/issues"
+    "url": "https://github.com/InfiniteXyy/unplugin-pomodoro/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/unplugin-starter.git"
+    "url": "git+https://github.com/InfiniteXyy/unplugin-pomodoro.git"
   },
   "license": "MIT",
   "exports": {
@@ -26,18 +24,6 @@
     "./vite": {
       "require": "./dist/vite.js",
       "import": "./dist/vite.mjs"
-    },
-    "./webpack": {
-      "require": "./dist/webpack.js",
-      "import": "./dist/webpack.mjs"
-    },
-    "./rollup": {
-      "require": "./dist/rollup.js",
-      "import": "./dist/rollup.mjs"
-    },
-    "./nuxt": {
-      "require": "./dist/nuxt.js",
-      "import": "./dist/nuxt.mjs"
     },
     "./types": {
       "require": "./dist/types.js",
@@ -55,12 +41,12 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch src",
-    "build:fix": "esno scripts/postbuild.ts",
+    "build:post": "esno scripts/postbuild.ts && pnpm run build --filter pomodoro-widget && cp -R ./widget/dist/* ./dist",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "play": "npm -C playground run dev",
     "prepublishOnly": "npm run build",
-    "release": "bumpp --commit --push --tag && pnpm publish",
+    "release": "npx bumpp --commit --push --tag && pnpm publish",
     "start": "esno src/index.ts",
     "test": "jest",
     "test:update": "jest -u"
@@ -73,7 +59,6 @@
     "@antfu/eslint-config": "^0.7.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.10",
-    "bumpp": "^6.0.6",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
     "esno": "^0.9.1",
