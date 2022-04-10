@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
-import Inspect from 'vite-plugin-inspect'
-import Unplugin from '../src/vite'
+import react from '@vitejs/plugin-react'
+// @ts-ignore
+import Pomodoro from '../src/vite'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    Inspect(),
-    Unplugin(),
-  ],
+  plugins: [react(), Pomodoro()],
 })

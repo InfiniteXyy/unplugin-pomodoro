@@ -1,5 +1,5 @@
 {
-  "name": "unplugin-starter",
+  "name": "unplugin-pomodoro",
   "version": "0.1.0",
   "description": "Register global imports on demand for Vite and Webpack",
   "keywords": [
@@ -66,6 +66,7 @@
     "test:update": "jest -u"
   },
   "dependencies": {
+    "dayjs": "^1.11.0",
     "unplugin": "^0.2.7"
   },
   "devDependencies": {
@@ -79,6 +80,8 @@
     "fast-glob": "^3.2.7",
     "jest": "^27.1.0",
     "nodemon": "^2.0.12",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "ts-jest": "^27.0.5",
