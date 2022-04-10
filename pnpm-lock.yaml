@@ -66,6 +66,7 @@ importers:
 
   widget:
     specifiers:
+      '@iconify-json/carbon': ^1.1.3
       '@sveltejs/vite-plugin-svelte': ^1.0.0-next.30
       '@tsconfig/svelte': ^2.0.1
       '@unocss/core': ^0.30.13
@@ -77,6 +78,7 @@ importers:
       unocss: ^0.30.13
       vite: ^2.9.0
     devDependencies:
+      '@iconify-json/carbon': 1.1.3
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.41_svelte@3.47.0+vite@2.9.1
       '@tsconfig/svelte': 2.0.1
       '@unocss/core': 0.30.13
@@ -609,6 +611,12 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
+    dev: true
+
+  /@iconify-json/carbon/1.1.3:
+    resolution: {integrity: sha512-jbxBsk4YfeVyT/OkIYN6W9AJci3g5BMWzp1q4r3OsHMH2qhfGpxulRPm9kaYP5hGi8m3ZPNmzpewh87YoZ81fw==}
+    dependencies:
+      '@iconify/types': 1.1.0
     dev: true
 
   /@iconify/types/1.1.0:

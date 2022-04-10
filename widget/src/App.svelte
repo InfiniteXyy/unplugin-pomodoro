@@ -1,5 +1,4 @@
 <script lang="ts">
-  import 'uno.css'
   import { displayDuration, State, validateState } from './util'
   import { writable } from 'svelte/store'
   import RingSound from './ring.ogg?url'
@@ -62,31 +61,28 @@
 </script>
 
 <div
-  class="fixed cursor-pointer select-none opacity-40 transition hover:opacity-100 z-9999"
+  class="z-9999 fixed cursor-pointer select-none opacity-40 transition hover:opacity-100"
   style="top: {wigetPostion.y}px; left: {wigetPostion.x}px"
-  on:click={() => (isPaused = !isPaused)}
   on:mousedown={() => (isDragging = true)}
   on:mouseup={() => (isDragging = false)}
 >
   <div
     class="border-true-gray-200 flex h-[100px] w-[180px] flex-col items-center justify-center rounded-md border bg-white shadow-lg"
   >
+    <div class="i-carbon-pause-fill" />
     <div class="text-gray text-xs font-medium">
       {$state.status === 'rest' ? 'Rest' : 'Work'}
       {isPaused ? `Paused ${displayDuration($state.leftSeconds)}` : ''}
     </div>
-    {#if isPaused}
-      <svg width="1em" height="1em" viewBox="0 0 256 256" class="text-true-gray-500 h-10 text-3xl">
-        <path
-          fill="currentColor"
-          d="M240 128a16.1 16.1 0 0 1-7.7 13.7l-144 87.9a15.5 15.5 0 0 1-16.1.3A15.8 15.8 0 0 1 64 216V40a15.8 15.8 0 0 1 8.2-13.9a15.5 15.5 0 0 1 16.1.3l144 87.9A16.1 16.1 0 0 1 240 128Z"
-        />
-      </svg>
-    {:else}
-      <div class="text-4xl font-bold">
-        {displayDuration($state.leftSeconds)}
-      </div>
-    {/if}
+    <div on:click={() => (isPaused = !isPaused)} on:mousedown|stopPropagation class="grid h-10 place-items-center">
+      {#if isPaused}
+        <div class="i-carbon-play-filled-alt text-true-gray-500 text-3xl" />
+      {:else}
+        <div class="text-4xl font-bold">
+          {displayDuration($state.leftSeconds)}
+        </div>
+      {/if}
+    </div>
     <div class="mt-2 flex gap-1">
       {#each [0, 1, 2, 3] as i}
         <div
@@ -98,18 +94,9 @@
         />
       {/each}
     </div>
-
-    <svg
-      width="1em"
-      height="1em"
-      viewBox="0 0 20 20"
-      class="text-true-gray-400 absolute top-2 right-2 text-xs"
+    <div
+      class="i-carbon-renew text-true-gray-400 absolute top-2 right-2 block text-xs"
       on:click|stopPropagation={resetState}
-    >
-      <path
-        fill="currentColor"
-        d="M6.03 2.47a.75.75 0 0 1 0 1.06L4.81 4.75H11A6.25 6.25 0 1 1 4.75 11a.75.75 0 0 1 1.5 0A4.75 4.75 0 1 0 11 6.25H4.81l1.22 1.22a.75.75 0 0 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1 0-1.06l2.5-2.5a.75.75 0 0 1 1.06 0Z"
-      />
-    </svg>
+    />
   </div>
 </div>
