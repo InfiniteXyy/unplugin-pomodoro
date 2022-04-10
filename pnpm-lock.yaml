@@ -7,7 +7,6 @@ importers:
       '@antfu/eslint-config': ^0.7.0
       '@types/jest': ^27.0.1
       '@types/node': ^16.7.10
-      dayjs: ^1.11.0
       eslint: ^7.32.0
       eslint-plugin-jest: ^24.4.0
       esno: ^0.9.1
@@ -25,7 +24,6 @@ importers:
       vite: ^2.5.3
       webpack: ^5.51.2
     dependencies:
-      dayjs: 1.11.0
       unplugin: 0.2.21_922885e9564168bd74de71e389756083
     devDependencies:
       '@antfu/eslint-config': 0.7.0_eslint@7.32.0+typescript@4.6.3
@@ -2033,10 +2031,6 @@ packages:
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
     dev: true
-
-  /dayjs/1.11.0:
-    resolution: {integrity: sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==}
-    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

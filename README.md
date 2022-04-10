@@ -34,5 +34,6 @@ export interface Options {
 ```
 
 ## TODO
-- [] support Webpack
-- [] support drag and drop
+[ ] support Webpack
+[x] support drag and drop
+[ ] fix drag and drop issues (window edge / click event)

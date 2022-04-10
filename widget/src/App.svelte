@@ -3,10 +3,12 @@
   import { displayDuration, State, validateState } from './util'
   import { writable } from 'svelte/store'
   import RingSound from './ring.ogg?url'
+  import { onMount } from 'svelte'
 
-  let now = Date.now()
   let isPaused = true
   let timer: ReturnType<typeof setTimeout> | undefined
+  let wigetPostion = { x: 10, y: 10 }
+  let isDragging = false
 
   export let notifySound: string | false
 
@@ -49,11 +51,22 @@
   $: $state.leftSeconds < 0 && ($state = createNextState({}))
 
   $: !isPaused ? (timer = setInterval(tick, 1000)) : clearInterval(timer)
+
+  onMount(() => {
+    document.addEventListener('mousemove', ({ movementX, movementY }) => {
+      if (!isDragging) return
+      wigetPostion.x += movementX / devicePixelRatio
+      wigetPostion.y += movementY / devicePixelRatio
+    })
+  })
 </script>
 
 <div
-  class="fixed top-5 right-5 cursor-pointer select-none opacity-40 transition hover:opacity-100"
+  class="fixed cursor-pointer select-none opacity-40 transition hover:opacity-100 z-9999"
+  style="top: {wigetPostion.y}px; left: {wigetPostion.x}px"
   on:click={() => (isPaused = !isPaused)}
+  on:mousedown={() => (isDragging = true)}
+  on:mouseup={() => (isDragging = false)}
 >
   <div
     class="border-true-gray-200 flex h-[100px] w-[180px] flex-col items-center justify-center rounded-md border bg-white shadow-lg"
