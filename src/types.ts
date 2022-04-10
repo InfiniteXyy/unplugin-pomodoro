@@ -1,3 +1,4 @@
 export interface Options {
-  // define your plugin options here
+  /** Custom notify sound at the end of countdown time */
+  notifySound?: string | false
 }

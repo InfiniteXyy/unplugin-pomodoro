@@ -6,7 +6,6 @@
 
 <img src="/media/screenshot.jpg"  width="400px"></img>
 
-
 ## Install
 
 ```bash
@@ -21,8 +20,19 @@ npm i unplugin-pomodoro
 import Pomodoro from 'unplugin-pomodoro/vite'
 
 export default defineConfig({
-  plugins: [
-    Pomodoro(),
-  ],
+  plugins: [Pomodoro()],
 })
 ```
+
+## Configuration
+
+```ts
+export interface Options {
+  /** Custom notify sound at the end of countdown time */
+  notifySound?: string | false
+}
+```
+
+## TODO
+- [] support Webpack
+- [] support drag and drop
